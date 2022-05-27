@@ -11,3 +11,15 @@ class HomeStarted extends HomeEvent {
   @override
   String toString() => 'HomeStarted';
 }
+
+class HomeSearchCats extends HomeEvent {
+  final String search;
+
+  const HomeSearchCats({required this.search});
+
+  @override
+  List<Object?> get props => [search];
+
+  @override
+  String toString() => 'HomeSearchCats';
+}

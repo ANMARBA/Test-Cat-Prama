@@ -11,6 +11,14 @@ class HomeCatPage extends StatefulWidget {
 }
 
 class _HomeCatPageState extends State<HomeCatPage> {
+  final _searchCatController = TextEditingController();
+
+  @override
+  void dispose() {
+    _searchCatController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider<HomeBloc>(
@@ -24,41 +32,22 @@ class _HomeCatPageState extends State<HomeCatPage> {
                 SliverOverlapAbsorber(
                   handle:
                       NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-                  sliver: const SliverAppBarHomeCat(),
+                  sliver: SliverAppBarHomeCat(
+                    searchCatController: _searchCatController,
+                  ),
                 ),
               ];
             },
             body: BlocBuilder<HomeBloc, HomeState?>(
-              builder: (_, HomeState? state) {
+              builder: (BuildContext homeBloc, HomeState? state) {
                 if (state is Loading) {
                   return const Center(
                       child: CircularProgressIndicator.adaptive());
                 } else if (state is GetListCats) {
-                  return Builder(
-                    builder: (BuildContext context) {
-                      return CustomScrollView(
-                        key: const PageStorageKey<String>('ScrollListCatsKey'),
-                        slivers: <Widget>[
-                          SliverOverlapInjector(
-                            handle:
-                                NestedScrollView.sliverOverlapAbsorberHandleFor(
-                                    context),
-                          ),
-                          SliverPadding(
-                            padding: const EdgeInsets.all(20),
-                            sliver: SliverFixedExtentList(
-                              itemExtent: 335.0,
-                              delegate: SliverChildBuilderDelegate(
-                                (_, int index) =>
-                                    CardCat(cat: state.listCats[index]),
-                                childCount: state.listCats.length,
-                              ),
-                            ),
-                          ),
-                        ],
-                      );
-                    },
-                  );
+                  return ListCat(listCats: state.listCats);
+                } else if (state is DataEmpty) {
+                  return const Center(
+                      child: Text('No se encontraron resultados...'));
                 } else {
                   return Container();
                 }

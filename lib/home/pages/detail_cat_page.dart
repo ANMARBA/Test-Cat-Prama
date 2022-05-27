@@ -74,7 +74,8 @@ class DetailCatPage extends StatelessWidget {
                                 width: double.infinity,
                                 child: ContainerImageCat(
                                   imageCat: cat.image,
-                                  margin: const EdgeInsets.all(20),
+                                  margin: const EdgeInsets.only(
+                                      left: 20, right: 20, bottom: 20),
                                 ),
                               ),
                             ),
@@ -107,7 +108,7 @@ class DetailCatPage extends StatelessWidget {
                                 textStyle: _textStyle,
                               ),
                               _contentData(
-                                title: 'Nombre del País',
+                                title: 'País',
                                 text: cat.origin,
                                 textStyle: _textStyle,
                               ),
