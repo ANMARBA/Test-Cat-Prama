@@ -51,13 +51,13 @@ class DetailCatPage extends StatelessWidget {
                         context),
                     sliver: MultiSliver(
                       children: [
-                        const SliverAppBar(
+                        SliverAppBar(
                           backgroundColor: Colors.white,
                           foregroundColor: Colors.black,
                           centerTitle: true,
                           title: Text(
-                            'Catbreeds',
-                            style: TextStyle(
+                            cat.name,
+                            style: const TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 20),
                           ),
                           pinned: true,
