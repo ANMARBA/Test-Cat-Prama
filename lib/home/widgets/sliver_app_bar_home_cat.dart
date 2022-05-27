@@ -17,8 +17,7 @@ class SliverAppBarHomeCat extends StatelessWidget {
             ),
           ),
           Container(
-            margin:
-                const EdgeInsets.only(bottom: 20, left: 20, right: 20, top: 10),
+            margin: const EdgeInsets.only(left: 20, right: 20, top: 10),
             color: Colors.white,
             child: TextField(
               decoration: const InputDecoration(
@@ -37,7 +36,7 @@ class SliverAppBarHomeCat extends StatelessWidget {
           ),
         ],
       ),
-      toolbarHeight: 150,
+      toolbarHeight: 110,
       pinned: true,
       shadowColor: Colors.transparent,
     );

@@ -8,7 +8,7 @@ class Cat extends Equatable {
   final String description;
   final String lifeSpan;
   final num adaptability;
-  final Image image;
+  final ImageCat? image;
 
   const Cat({
     required this.id,
@@ -34,10 +34,10 @@ class Cat extends Equatable {
       ];
 }
 
-class Image extends Equatable {
-  final String url;
+class ImageCat extends Equatable {
+  final String? url;
 
-  const Image({required this.url});
+  const ImageCat({required this.url});
 
   @override
   List<Object?> get props => [url];

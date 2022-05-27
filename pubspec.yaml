@@ -17,6 +17,8 @@ dependencies:
   equatable: ^2.0.3
   http: ^0.13.4
   transparent_image: ^2.0.0
+  flutter_bloc: ^7.3.3
+  sliver_tools: ^0.2.6
 
 dev_dependencies:
   flutter_test:
